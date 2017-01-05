@@ -76,3 +76,6 @@ $RECYCLE.BIN/
 
 dist
 .nyc_output
+frameworks
+src
+publish
