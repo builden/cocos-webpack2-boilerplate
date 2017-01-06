@@ -1,5 +1,5 @@
-import path from 'path';
-import fs from 'fs';
+const path = require('path');
+const fs = require('fs');
 
 // Make sure any symlinks in the project folder are resolved
 const appDirectory = fs.realpathSync(process.cwd());
@@ -13,12 +13,12 @@ const nodePaths = (process.env.NODE_PATH || '')
   .filter(folder => !path.isAbsolute(folder))
   .map(resolveApp);
 
-export default {
+module.exports = {
   appBuild: resolveApp('build'),
   appHtml: resolveApp('index.html'),
-  appIndexJs: resolveApp('es6/index.js'),
+  appIndexJs: resolveApp('es/index.js'),
   appPackageJson: resolveApp('package.json'),
-  appLib: resolveApp('lib'),
+  appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
   appNodeModules: resolveApp('node_modules'),
   ownNodeModules: resolveApp('node_modules'),

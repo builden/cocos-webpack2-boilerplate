@@ -1,10 +1,11 @@
 import res from './resource';
 import HelloWorldScene from './app';
+import './ws-test';
 
 const resources = [];
-for (const i in res) {
-  resources.push(res[i]);
-}
+Object.keys(res).forEach((key) => {
+  resources.push(res[key]);
+});
 
 cc.game.es6Start = () => {
   if (!cc.sys.isNative && document.getElementById('cocosLoading')) {

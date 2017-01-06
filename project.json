@@ -11,6 +11,7 @@
     "cocos2d"
   ],
   "jsList": [
-    "src/bundle.js"
+    "src/bundle.js",
+    "src/vendors.js"
   ]
 }
