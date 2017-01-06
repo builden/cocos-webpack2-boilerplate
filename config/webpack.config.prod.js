@@ -1,4 +1,5 @@
 const paths = require('./paths');
+const webpack = require('webpack');
 
 module.exports = {
   // Don't attempt to continue if there are any errors.
@@ -16,9 +17,25 @@ module.exports = {
     path: paths.appSrc,
   },
 
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader?cacheDirectory',
+      },
+    ],
+  },
+
   // support tree-shaking if module use es6
   resolve: {
     mainFields: ['jsnext:main', 'main'],
     modules: [paths.appNodeModules],
   },
+
+  plugins: [
+    // This helps ensure the builds are consistent if source hasn't changed:
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    // Minify the code.
+    new webpack.optimize.UglifyJsPlugin(),
+  ],
 };

@@ -16,7 +16,9 @@ module.exports = {
   devtool: 'cheap-module-source-map',
 
   entry: {
-    bundle: paths.appIndexJs,
+    bundle: [
+      paths.appIndexJs,
+    ],
     vendors: ['mobx'],
   },
   output: {

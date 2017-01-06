@@ -7,7 +7,7 @@ Object.keys(res).forEach((key) => {
   resources.push(res[key]);
 });
 
-cc.game.es6Start = () => {
+cc.game.esStart = () => {
   if (!cc.sys.isNative && document.getElementById('cocosLoading')) {
     // If referenced loading.js, please remove it
     document.body.removeChild(document.getElementById('cocosLoading'));

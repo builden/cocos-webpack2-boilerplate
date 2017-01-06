@@ -53,6 +53,6 @@
  */
 
 cc.game.onStart = function () {
-  cc.game.es6Start();
+  cc.game.esStart();
 };
 cc.game.run();
