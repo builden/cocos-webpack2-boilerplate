@@ -27,6 +27,16 @@ module.exports = {
     publicPath: '/src/',
   },
 
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        include: paths.appEs,
+        loader: 'babel-loader?cacheDirectory',
+      },
+    ],
+  },
+
   // support tree-shaking if module use es6
   resolve: {
     mainFields: ['jsnext:main', 'main'],
