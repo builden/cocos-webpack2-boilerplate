@@ -10,7 +10,6 @@ module.exports = {
 
   entry: {
     bundle: paths.appIndexJs,
-    vendors: ['mobx'],
   },
   output: {
     filename: '[name].js',

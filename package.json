@@ -36,7 +36,8 @@
     "path-exists": "^3.0.0",
     "react-dev-utils": "^0.4.2",
     "webpack": "2.2.0-rc.4",
-    "webpack-dev-server": "^2.2.0-rc.0"
+    "webpack-dev-server": "^2.2.0-rc.0",
+    "webpack-hot-middleware": "^2.15.0"
   },
   "babel": {
     "presets": [

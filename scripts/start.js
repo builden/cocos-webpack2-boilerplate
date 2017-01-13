@@ -10,6 +10,7 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const getProcessForPort = require('react-dev-utils/getProcessForPort');
 const openBrowser = require('react-dev-utils/openBrowser');
 const prompt = require('react-dev-utils/prompt');
+const webpackHotMiddleware = require('webpack-hot-middleware');
 const pathExists = require('path-exists');
 const config = require('../config/webpack.config.dev');
 const paths = require('../config/paths');
@@ -26,7 +27,11 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 const DEFAULT_PORT = process.env.PORT || 3000;
 let compiler;
 
-config.entry.bundle.unshift('webpack/hot/dev-server');
+function addMiddleware(devServer) {
+  devServer.use(webpackHotMiddleware(compiler));
+}
+
+config.entry.bundle.unshift('webpack/hot/dev-server', 'webpack-hot-middleware/client');
 
 function setupCompiler(host, port, protocol) {
   // "Compiler" is a low-level interface to Webpack.
@@ -147,6 +152,8 @@ function runDevServer(host, port, protocol) {
     https: protocol === 'https',
     host,
   });
+
+  addMiddleware(devServer);
 
   // Launch WebpackDevServer.
   devServer.listen(port, (err) => {

@@ -33,3 +33,7 @@ cc.game.esStart = () => {
     cc.director.runScene(new HelloWorldScene());
   }, this);
 };
+
+if (module.hot) {
+  module.hot.accept();
+}
