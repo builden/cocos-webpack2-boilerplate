@@ -17,7 +17,7 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include: paths.appEs,
@@ -33,8 +33,6 @@ module.exports = {
   },
 
   plugins: [
-    // This helps ensure the builds are consistent if source hasn't changed:
-    new webpack.optimize.OccurrenceOrderPlugin(),
     // Minify the code.
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
