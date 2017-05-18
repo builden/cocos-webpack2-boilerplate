@@ -3,9 +3,7 @@ import HelloWorldScene from './app';
 import './ws-test';
 
 const resources = [];
-Object.keys(res).forEach((key) => {
-  resources.push(res[key]);
-});
+Object.keys(res).forEach(key => resources.push(res[key]));
 
 cc.game.esStart = () => {
   if (!cc.sys.isNative && document.getElementById('cocosLoading')) {
@@ -29,11 +27,11 @@ cc.game.esStart = () => {
   cc.view.resizeWithBrowserSize(true);
 
   // load resources
-  cc.LoaderScene.preload(resources, () => {
-    cc.director.runScene(new HelloWorldScene());
-  }, this);
+  cc.LoaderScene.preload(
+    resources,
+    () => {
+      cc.director.runScene(new HelloWorldScene());
+    },
+    this
+  );
 };
-
-if (module.hot) {
-  module.hot.accept();
-}

@@ -1,4 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "files.autoGuessEncoding": false,
+  "files.encoding": "utf8"
 }
